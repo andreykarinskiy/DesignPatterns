@@ -88,8 +88,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\Class1.cs" />
-    <Compile Include="Core\IMvvmTypeLocator.cs" />
     <Compile Include="DependencyConfig.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
