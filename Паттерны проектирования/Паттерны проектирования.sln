@@ -49,8 +49,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prototype", "Prototype", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Flyweight", "Flyweight", "{EF37565C-4295-4A64-9D9E-22E4E755AE39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragAndDrop", "Command\DragAndDrop\DragAndDrop.csproj", "{838DB6E4-24E9-4A44-AA07-15DB604016AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragAndDrop.Wpf", "Command\DragAndDrop.Wpf\DragAndDrop.Wpf.csproj", "{A7741910-CC34-4E62-95D2-8419DBEDE438}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{838DB6E4-24E9-4A44-AA07-15DB604016AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838DB6E4-24E9-4A44-AA07-15DB604016AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838DB6E4-24E9-4A44-AA07-15DB604016AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838DB6E4-24E9-4A44-AA07-15DB604016AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{838DB6E4-24E9-4A44-AA07-15DB604016AD} = {0876210D-F9EB-4486-A8BA-489CC5BCFFED}
+		{A7741910-CC34-4E62-95D2-8419DBEDE438} = {0876210D-F9EB-4486-A8BA-489CC5BCFFED}
 	EndGlobalSection
 EndGlobal
