@@ -17,7 +17,7 @@ namespace DragAndDrop.Wpf
 
         public App()
         {
-            var config = new DependencyResolution();
+            var config = new DependencyConfig();
             appController = new AppController(config);
         }
 

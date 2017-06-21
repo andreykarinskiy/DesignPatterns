@@ -8,7 +8,7 @@ using Microsoft.Practices.Unity;
 
 namespace DragAndDrop.Wpf
 {
-    public sealed class DependencyResolution : IDependenciesConfig
+    public sealed class DependencyConfig : IDependenciesConfig
     {
         public void Configure(IUnityContainer container)
         {

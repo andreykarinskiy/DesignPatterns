@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DragAndDrop.Wpf"
+        xmlns:mvvm="http://prismlibrary.com/"
+        Height="350"
+        Width="525"
         mc:Ignorable="d"
-        Title="ShellView" Height="350" Width="525">
+        Title="{Binding Title}"
+        mvvm:ViewModelLocator.AutoWireViewModel="true">
     <Grid>
         
     </Grid>
