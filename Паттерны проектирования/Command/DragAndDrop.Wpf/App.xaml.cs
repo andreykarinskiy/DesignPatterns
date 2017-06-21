@@ -17,7 +17,8 @@ namespace DragAndDrop.Wpf
 
         public App()
         {
-            appController = new AppController();
+            var config = new DependencyResolution();
+            appController = new AppController(config);
         }
 
         protected override void OnStartup(StartupEventArgs e)
