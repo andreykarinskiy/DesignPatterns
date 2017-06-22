@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
@@ -17,11 +18,13 @@ namespace WpfApp2
     {
         private bool isRectDragInProg;
 
+        private IDraggable rect;
+
         public MainViewModel()
         {
             OnMouseLeftButtonDown = new DelegateCommand<IDraggable>(rect_MouseLeftButtonDown);
-            OnMouseLeftButtonUp = new DelegateCommand<IDraggable>(rect_MouseLeftButtonUp);
-            OnMouseMove = new DelegateCommand<IDraggable>(rect_MouseMove);
+            OnMouseLeftButtonUp = new DelegateCommand(rect_MouseLeftButtonUp);
+            OnMouseMove = new DelegateCommand<object>(rect_MouseMove);
         }
 
         public ICommand OnMouseLeftButtonDown { get; }
@@ -32,19 +35,22 @@ namespace WpfApp2
 
         private void rect_MouseLeftButtonDown(IDraggable rect)
         {
+            this.rect = rect;
+
             isRectDragInProg = true;
+
             rect.CaptureMouse();
         }
 
-        private void rect_MouseLeftButtonUp(IDraggable rect)
+        private void rect_MouseLeftButtonUp()
         {
             isRectDragInProg = false;
             rect.ReleaseMouseCapture();
         }
 
-        private void rect_MouseMove(IDraggable rect)
+        private void rect_MouseMove(Point pt)
         {
-            if (!isRectDragInProg)
+            if (!isRectDragInProg || rect == null)
             {
                 return;
             }

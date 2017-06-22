@@ -33,13 +33,11 @@
                     </i:EventTrigger>
 
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding OnMouseLeftButtonUp}"
-                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Shape}}, Converter={StaticResource CustomConverter} }" />
+                        <i:InvokeCommandAction Command="{Binding OnMouseLeftButtonUp}"/>
                     </i:EventTrigger>
 
                     <i:EventTrigger EventName="MouseMove">
-                        <i:InvokeCommandAction Command="{Binding OnMouseMove}"
-                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Shape}}, Converter={StaticResource CustomConverter} }" />
+                        <i:InvokeCommandAction Command="{Binding OnMouseMove}"/>
                     </i:EventTrigger>
 
                 </i:Interaction.Triggers>
