@@ -17,7 +17,7 @@
 
     <Grid>
 
-        <Canvas Name="canvas">
+        <Canvas>
 
             <Rectangle Width="50"
                        Height="50"

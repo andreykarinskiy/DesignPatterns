@@ -24,7 +24,7 @@ namespace WpfApp2
         {
             OnMouseLeftButtonDown = new DelegateCommand<IDraggable>(rect_MouseLeftButtonDown);
             OnMouseLeftButtonUp = new DelegateCommand(rect_MouseLeftButtonUp);
-            OnMouseMove = new DelegateCommand<object>(rect_MouseMove);
+            OnMouseMove = new DelegateCommand(rect_MouseMove);
         }
 
         public ICommand OnMouseLeftButtonDown { get; }
@@ -48,12 +48,14 @@ namespace WpfApp2
             rect.ReleaseMouseCapture();
         }
 
-        private void rect_MouseMove(Point pt)
+        private void rect_MouseMove()
         {
             if (!isRectDragInProg || rect == null)
             {
                 return;
             }
+
+            var mousePos = rect.GetPosition();
 
             //var mousePos = e.GetPosition(canvas);
 
