@@ -53,6 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragAndDrop", "Command\Drag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragAndDrop.Wpf", "Command\DragAndDrop.Wpf\DragAndDrop.Wpf.csproj", "{A7741910-CC34-4E62-95D2-8419DBEDE438}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{8014E2AC-0F7B-47B2-8562-4529058DF0E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{5D5707E2-D0E0-4869-A0C5-1373AD4362E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7741910-CC34-4E62-95D2-8419DBEDE438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8014E2AC-0F7B-47B2-8562-4529058DF0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8014E2AC-0F7B-47B2-8562-4529058DF0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8014E2AC-0F7B-47B2-8562-4529058DF0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8014E2AC-0F7B-47B2-8562-4529058DF0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D5707E2-D0E0-4869-A0C5-1373AD4362E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D5707E2-D0E0-4869-A0C5-1373AD4362E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D5707E2-D0E0-4869-A0C5-1373AD4362E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D5707E2-D0E0-4869-A0C5-1373AD4362E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +86,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{838DB6E4-24E9-4A44-AA07-15DB604016AD} = {0876210D-F9EB-4486-A8BA-489CC5BCFFED}
 		{A7741910-CC34-4E62-95D2-8419DBEDE438} = {0876210D-F9EB-4486-A8BA-489CC5BCFFED}
+		{8014E2AC-0F7B-47B2-8562-4529058DF0E2} = {0876210D-F9EB-4486-A8BA-489CC5BCFFED}
 	EndGlobalSection
 EndGlobal
