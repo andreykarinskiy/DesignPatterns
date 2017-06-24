@@ -13,6 +13,6 @@ namespace WpfApp2
 
         void ReleaseMouseCapture();
 
-        Point GetPosition();
+        Point GetPosition(object arg);
     }
 }

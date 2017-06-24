@@ -36,7 +36,7 @@ namespace WpfApp2
         {
             if (adaptee.Parent is Canvas canvas)
             {
-
+                
             }
 
             throw new NotImplementedException();

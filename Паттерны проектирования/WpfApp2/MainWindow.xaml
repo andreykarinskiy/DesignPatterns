@@ -25,20 +25,27 @@
                        Canvas.Top="0"
                        Fill="Red">
 
+                <i:Interaction.Behaviors>
+                    <local:EventToCommandBehavior Command="{Binding OnMouseMove}"
+                                                  Event="MouseMove"
+                                                  PassArguments="True" />
+                </i:Interaction.Behaviors>
+
                 <i:Interaction.Triggers>
-                    
+
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding OnMouseLeftButtonDown}"
                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Shape}}, Converter={StaticResource CustomConverter} }" />
                     </i:EventTrigger>
 
                     <i:EventTrigger EventName="MouseLeftButtonUp">
-                        <i:InvokeCommandAction Command="{Binding OnMouseLeftButtonUp}"/>
+                        <i:InvokeCommandAction Command="{Binding OnMouseLeftButtonUp}" />
                     </i:EventTrigger>
 
-                    <i:EventTrigger EventName="MouseMove">
+                    <!--<i:EventTrigger EventName="MouseMove">
+                        
                         <i:InvokeCommandAction Command="{Binding OnMouseMove}"/>
-                    </i:EventTrigger>
+                    </i:EventTrigger>-->
 
                 </i:Interaction.Triggers>
 
