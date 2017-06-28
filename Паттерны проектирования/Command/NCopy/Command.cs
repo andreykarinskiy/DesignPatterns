@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragAndDrop
+namespace NCopy
 {
     public abstract class Command
     {
-        public abstract void Execute(CanvasPresenter presenter);
-
-        public abstract void Unexecute(CanvasPresenter presenter);
+        public abstract void Execute();
     }
 }
