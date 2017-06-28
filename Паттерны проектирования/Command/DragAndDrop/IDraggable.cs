@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace DragAndDrop
 {
-    public interface IShellView
+    public interface IDraggable
     {
-        void Show();
+        int X { get; }
+
+        int Y { get; }
+
+        void MoveTo(int x, int y);
     }
 }

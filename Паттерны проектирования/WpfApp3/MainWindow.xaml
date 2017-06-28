@@ -9,24 +9,14 @@
         Height="350"
         Width="525">
     <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btnUndo">Undo</Button>
+                <Button Name="btnRedo">Redo</Button>
+            </StackPanel>
         <Canvas Name="canvas">
-            <Rectangle Width="30"
-                       Height="30"
-                       Canvas.Left="0"
-                       Canvas.Top="0"
-                       Fill="Red"
-                       MouseLeftButtonDown="rect_MouseLeftButtonDown"
-                       MouseLeftButtonUp="rect_MouseLeftButtonUp"
-                       MouseMove="rect_MouseMove" />
-
-            <Rectangle Width="30"
-                       Height="30"
-                       Canvas.Left="50"
-                       Canvas.Top="50"
-                       Fill="Blue"
-                       MouseLeftButtonDown="rect_MouseLeftButtonDown"
-                       MouseLeftButtonUp="rect_MouseLeftButtonUp"
-                       MouseMove="rect_MouseMove" />
+            
         </Canvas>
+        </StackPanel>
     </Grid>
 </Window>

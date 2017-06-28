@@ -18,7 +18,7 @@ namespace WpfApp3
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, ICanvasView, IShellView
     {
         private bool isRectDragInProg;
 
@@ -26,24 +26,33 @@ namespace WpfApp3
 
         public MainWindow()
         {
+            // TODO: Перенести в контейнер!
+            Presenter = new CanvasPresenter(this);
+
             InitializeComponent();
 
-            var rnd = new Random();
-            for (int i = 0; i < 10; i++)
+            Presenter.Initialize();
+        }
+
+        public CanvasPresenter Presenter { get; set; }
+
+        public void AddShape(int x, int y)
+        {
+            var shape = new Ellipse
             {
-                var shape = new Ellipse();
-                shape.Width = 30;
-                shape.Height = 30;
-                shape.Fill = Brushes.Blue;
-                shape.MouseLeftButtonDown += rect_MouseLeftButtonDown;
-                shape.MouseLeftButtonUp += rect_MouseLeftButtonUp;
-                shape.MouseMove += rect_MouseMove;
+                Width = 30,
+                Height = 30,
+                Fill = Brushes.Blue
+            };
 
-                Canvas.SetLeft(shape, rnd.Next(0, 500));
-                Canvas.SetTop(shape, rnd.Next(0, 300));
+            shape.MouseLeftButtonDown += rect_MouseLeftButtonDown;
+            shape.MouseLeftButtonUp += rect_MouseLeftButtonUp;
+            shape.MouseMove += rect_MouseMove;
 
-                canvas.Children.Add(shape);
-            }
+            Canvas.SetLeft(shape, x);
+            Canvas.SetTop(shape, y);
+
+            canvas.Children.Add(shape);
         }
 
         private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -64,12 +73,24 @@ namespace WpfApp3
         {
             if (!isRectDragInProg) return;
 
-            var mousePos = e.GetPosition(canvas);
+            var parent = ((FrameworkElement)sender).Parent;
+            var mousePos = e.GetPosition((IInputElement)parent);
 
-            double left = mousePos.X - (element.ActualWidth / 2);
-            double top = mousePos.Y - (element.ActualHeight / 2);
+            double left = mousePos.X - element.ActualWidth / 2;
+            double top = mousePos.Y - element.ActualHeight / 2;
+
             Canvas.SetLeft(element, left);
             Canvas.SetTop(element, top);
+        }
+
+        public void SetCanUndo(bool state)
+        {
+            btnUndo.IsEnabled = state;
+        }
+
+        public void SetCanRedo(bool state)
+        {
+            btnRedo.IsEnabled = state;
         }
     }
 }
