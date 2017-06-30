@@ -42,10 +42,15 @@ namespace NCopy.UI
     {
     }
 
-    [Export(typeof(Command))]
-    [ExportMetadata("Name", "CUT")]
-    [ExportMetadata("Description", "description")]
+    [Command("CUT", "descr")]
     public class CutCommand : Command { }
+
+    
+    [Command("Copy", "descr")]
+    public sealed class CopyCommand : Command
+    {
+    }
+
 
     public interface ICommandInfo
     {
@@ -54,13 +59,17 @@ namespace NCopy.UI
         string Description { get; }
     }
 
-    [Export(typeof(Command))]
-    [ExportMetadata("Name", "Copy")]
-    [ExportMetadata("Description", "description")]
-    public sealed class CopyCommand : Command
+    [MetadataAttribute, AttributeUsage(AttributeTargets.Class)]
+    public class CommandAttribute : ExportAttribute/*Attribute,*/, ICommandInfo
     {
-        public CopyCommand([])
+        public CommandAttribute(string name, string description) : base(typeof(Command))
         {
+            Name = name;
+            Description = description;
         }
+
+        public string Name { get; }
+
+        public string Description { get; }
     }
 }
