@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Reflection;
 using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
+using IN = System.Func<object, object, string>;
 
 namespace NCopy.UI
 {
@@ -39,9 +41,25 @@ namespace NCopy.UI
         }
 
         [Export("ArgumentProvider")]
-        public string GetArgument(object obj)
+        public string GetArgument(object ctorArgument, object source)
         {
-            return obj.ToString() + " PARAM";
+            var ctor = source.GetType().GetConstructors().Single();
+
+            foreach (var parameter in ctor.GetParameters())
+            {
+                //var argumentAttribute = parameter
+                //    .GetCustomAttributes()
+                //    .OfType<ArgumentAttribute>()
+                //    .Single();
+
+                Type a = parameter.ParameterType;
+                var aa = parameter.GetCustomAttributes();
+
+                Type b = ctorArgument.GetType();
+                var bb = b.GetCustomAttributes();
+            }
+
+            return "PARAM";
         }
     }
 
@@ -52,7 +70,7 @@ namespace NCopy.UI
     [Command("CUT", "descr")]
     public class CutCommand : Command { }
 
-    
+
     [Command("Copy", "descr")]
     public sealed class CopyCommand : Command
     {
@@ -60,10 +78,10 @@ namespace NCopy.UI
         private readonly string to;
 
         [ImportingConstructor]
-        public CopyCommand([Argument("from")] Func<object, string> from, [Argument("to")] Func<object, string> to)
+        public CopyCommand([Argument("from")] IN from, [Argument("to")] IN to)
         {
-            this.from = from(this);
-            this.to = to(this);
+            this.from = from(from, this);
+            this.to = to(to, this);
         }
     }
 
