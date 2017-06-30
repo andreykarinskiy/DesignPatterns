@@ -9,7 +9,7 @@ namespace NCopy
 {
     public sealed class CommandAttribute : ExportMetadataAttribute, ICommandInfo
     {
-        public CommandAttribute(string name, string description) : base(typeof(Command
+        public CommandAttribute(string name, string description) : base(typeof(Command))
         {
             Name = name;
             Description = description;

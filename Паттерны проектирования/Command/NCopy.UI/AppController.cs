@@ -39,12 +39,9 @@ namespace NCopy.UI
         }
 
         [Export("ArgumentProvider")]
-        public string ArgumentProvider
+        public string GetArgument(object obj)
         {
-            get
-            {
-                return "some";
-            }
+            return obj.ToString() + " PARAM";
         }
     }
 
@@ -63,10 +60,10 @@ namespace NCopy.UI
         private readonly string to;
 
         [ImportingConstructor]
-        public CopyCommand([Argument("from")] string from, [Argument("to")] string to)
+        public CopyCommand([Argument("from")] Func<object, string> from, [Argument("to")] Func<object, string> to)
         {
-            this.from = from;
-            this.to = to;
+            this.from = from(this);
+            this.to = to(this);
         }
     }
 
@@ -95,7 +92,7 @@ namespace NCopy.UI
     [AttributeUsage(AttributeTargets.Parameter)]
     public sealed class ArgumentAttribute : ImportAttribute
     {
-        public ArgumentAttribute(string name) : base("ArgumentProvider", typeof(string))
+        public ArgumentAttribute(string name) : base("ArgumentProvider")
         {
             Name = name;
         }
@@ -105,6 +102,6 @@ namespace NCopy.UI
 
     public interface ICommandArgumentProvider
     {
-
+        //string 
     }
 }
