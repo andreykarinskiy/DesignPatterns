@@ -37,6 +37,15 @@ namespace NCopy.UI
             var commandFactory = commandFactories.Single(o => o.Metadata.Name == "Copy");
             var command = commandFactory.CreateExport().Value;
         }
+
+        [Export("ArgumentProvider")]
+        public string ArgumentProvider
+        {
+            get
+            {
+                return "some";
+            }
+        }
     }
 
     public abstract class Command
@@ -84,13 +93,18 @@ namespace NCopy.UI
     }
 
     [AttributeUsage(AttributeTargets.Parameter)]
-    public sealed class ArgumentAttribute : Attribute
+    public sealed class ArgumentAttribute : ImportAttribute
     {
-        public ArgumentAttribute(string name)
+        public ArgumentAttribute(string name) : base("ArgumentProvider", typeof(string))
         {
             Name = name;
         }
 
         public string Name { get; }
+    }
+
+    public interface ICommandArgumentProvider
+    {
+
     }
 }
