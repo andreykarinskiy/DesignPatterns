@@ -34,7 +34,8 @@ namespace NCopy.UI
 
         private void Run()
         {
-            
+            var commandFactory = commandFactories.Single(o => o.Metadata.Name == "Copy");
+            var command = commandFactory.CreateExport().Value;
         }
     }
 
@@ -49,6 +50,15 @@ namespace NCopy.UI
     [Command("Copy", "descr")]
     public sealed class CopyCommand : Command
     {
+        private readonly string from;
+        private readonly string to;
+
+        [ImportingConstructor]
+        public CopyCommand([Argument("from")] string from, [Argument("to")] string to)
+        {
+            this.from = from;
+            this.to = to;
+        }
     }
 
 
@@ -60,7 +70,7 @@ namespace NCopy.UI
     }
 
     [MetadataAttribute, AttributeUsage(AttributeTargets.Class)]
-    public class CommandAttribute : ExportAttribute/*Attribute,*/, ICommandInfo
+    public class CommandAttribute : ExportAttribute, ICommandInfo
     {
         public CommandAttribute(string name, string description) : base(typeof(Command))
         {
@@ -71,5 +81,16 @@ namespace NCopy.UI
         public string Name { get; }
 
         public string Description { get; }
+    }
+
+    [AttributeUsage(AttributeTargets.Parameter)]
+    public sealed class ArgumentAttribute : Attribute
+    {
+        public ArgumentAttribute(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; }
     }
 }
