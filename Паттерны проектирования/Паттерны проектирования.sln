@@ -51,6 +51,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{894B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command\Command.csproj", "{E8A94AB1-9DF8-407E-B4F0-CF03FA32B50E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visitor", "Visitor\Visitor.csproj", "{C6087A86-7B06-4BCA-9CC4-6389377DD688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,11 +63,16 @@ Global
 		{E8A94AB1-9DF8-407E-B4F0-CF03FA32B50E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8A94AB1-9DF8-407E-B4F0-CF03FA32B50E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8A94AB1-9DF8-407E-B4F0-CF03FA32B50E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6087A86-7B06-4BCA-9CC4-6389377DD688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6087A86-7B06-4BCA-9CC4-6389377DD688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6087A86-7B06-4BCA-9CC4-6389377DD688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6087A86-7B06-4BCA-9CC4-6389377DD688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E8A94AB1-9DF8-407E-B4F0-CF03FA32B50E} = {894B930B-7D54-4F3D-A577-0E0E7244393B}
+		{C6087A86-7B06-4BCA-9CC4-6389377DD688} = {2DFEB8C6-961D-47B5-A43B-20135668AA19}
 	EndGlobalSection
 EndGlobal

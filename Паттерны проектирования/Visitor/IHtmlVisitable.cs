@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Visitor
 {
-    class Program
+    public interface IHtmlVisitable
     {
-        static void Main(string[] args)
-        {
-        }
+        void Accept(IHtmlVisitor visitor);
     }
 }
