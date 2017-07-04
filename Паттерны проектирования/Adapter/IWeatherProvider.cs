@@ -8,6 +8,6 @@ namespace Adapter
 {
     public interface IWeatherProvider
     {
-        IEnumerable<WeatherInfo> GetWeather(string area, DateTime from, DateTime to);
+        IEnumerable<WeatherInfo> GetWeather(float altitude, float longitude, DateTime from, DateTime to);
     }
 }
