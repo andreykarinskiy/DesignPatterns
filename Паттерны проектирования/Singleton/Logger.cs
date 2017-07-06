@@ -8,7 +8,7 @@ namespace Singleton
 {
     public sealed class Logger
     {
-        private static Lazy<Logger> instance { get; } = new Lazy<Logger>(() => new Logger());
+        private static Lazy<Logger> instance { get; } = new Lazy<Logger>(() => new Logger(), isThreadSafe:true);
 
         public static Logger Instance => instance.Value;
 
