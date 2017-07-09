@@ -12,7 +12,6 @@ namespace Adapter.Google
 
         public GoogleAdapter()
         {
-            // Почему?
             adaptee = new GoogleWeatherService("http://google.weather.com");
         }
 

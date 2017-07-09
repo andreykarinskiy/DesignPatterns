@@ -10,6 +10,7 @@ namespace Adapter
     {
         public static void Main(string[] args)
         {
+            IWeatherProvider weatherProvider = new WeatherAggregator();
         }
     }
 }
